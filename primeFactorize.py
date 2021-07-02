@@ -26,7 +26,7 @@ def pFactor(k: int):
                 currTest = currTest+1
 
     if Prime:
-        print(str(k) + " is Prime.")
+        print(str(k) + " is most definitely prime.")
     else:
         print("The prime factorization of "+str(k)+" is ", end ="")
         counter = len(factorization)
