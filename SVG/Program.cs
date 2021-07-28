@@ -1,5 +1,7 @@
 ﻿using System;
 
+/*
+
 namespace SVG
 {
     class Program
@@ -10,3 +12,5 @@ namespace SVG
         }
     }
 }
+
+/**/
