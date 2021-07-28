@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dylanzhu/Desktop/SVG/SVG.csproj": {}
+    "/Users/dylanzhu/Documents/GitHub/dixieflatline/SVG/SVG.csproj": {}
   },
   "projects": {
-    "/Users/dylanzhu/Desktop/SVG/SVG.csproj": {
+    "/Users/dylanzhu/Documents/GitHub/dixieflatline/SVG/SVG.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dylanzhu/Desktop/SVG/SVG.csproj",
+        "projectUniqueName": "/Users/dylanzhu/Documents/GitHub/dixieflatline/SVG/SVG.csproj",
         "projectName": "SVG",
-        "projectPath": "/Users/dylanzhu/Desktop/SVG/SVG.csproj",
+        "projectPath": "/Users/dylanzhu/Documents/GitHub/dixieflatline/SVG/SVG.csproj",
         "packagesPath": "/Users/dylanzhu/.nuget/packages/",
-        "outputPath": "/Users/dylanzhu/Desktop/SVG/obj/",
+        "outputPath": "/Users/dylanzhu/Documents/GitHub/dixieflatline/SVG/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/dylanzhu/.nuget/NuGet/NuGet.Config"

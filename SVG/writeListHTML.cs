@@ -6,7 +6,7 @@ using System.Text;
 using System;
 /**/
 
-public class commentLinesSVG : MonoBehaviour
+public class commentLinesSVG //: MonoBehaviour
 {
     public List<string> splitFile = new List<string>();
 
