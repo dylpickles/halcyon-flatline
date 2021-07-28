@@ -1,0 +1,5 @@
+/Users/dylanzhu/Desktop/SVG/obj/Debug/net5.0/SVG.csproj.AssemblyReference.cache
+/Users/dylanzhu/Desktop/SVG/obj/Debug/net5.0/SVG.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dylanzhu/Desktop/SVG/obj/Debug/net5.0/SVG.AssemblyInfoInputs.cache
+/Users/dylanzhu/Desktop/SVG/obj/Debug/net5.0/SVG.AssemblyInfo.cs
+/Users/dylanzhu/Desktop/SVG/obj/Debug/net5.0/SVG.csproj.CoreCompileInputs.cache
