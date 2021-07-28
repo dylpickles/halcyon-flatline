@@ -14,7 +14,7 @@ namespace TestContainer
 
         public static string fileName = "rip testVG.svg";
 
-        public static string xmlFolder = "/Users/dylanzhu/Desktop/SVG/TestVG";
+        public static string xmlFolder = "/Users/dylanzhu/Desktop/TestVG";
         //public static string xmlFolder = "/Users/dylanzhu/Desktop/ /Unity Projects/characterDrawingTest/Assets/Resources/xmlFiles";
         //public static string xmlFolder = "/Users/dylanzhu/Desktop/ /Unity Projects/characterDrawingTest/Assets/Scenes/xmlFiles";
         //public static string xmlFolder = "/Users/dylanzhu/Desktop/testFolder";
