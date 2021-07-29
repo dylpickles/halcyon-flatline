@@ -4,6 +4,8 @@ using System.Linq;
 using System.IO;
 using System.Text;
 using System;
+using System.Globalization;
+
 /**/
 
 namespace TestContainer
@@ -12,17 +14,18 @@ namespace TestContainer
     {
         public List<string> splitFile = new List<string>();
 
+        //DateTime dt1 = new DateTime(2015, 12, 31); 
+        DateTime dt1 = DateTime.Now;
+
         public static string fileName = "rip testVG.svg";
+        public static string EditedLine = "";
 
-        public static string xmlFolder = "/Users/dylanzhu/Desktop/TestVG";
-        //public static string xmlFolder = "/Users/dylanzhu/Desktop/ /Unity Projects/characterDrawingTest/Assets/Resources/xmlFiles";
-        //public static string xmlFolder = "/Users/dylanzhu/Desktop/ /Unity Projects/characterDrawingTest/Assets/Scenes/xmlFiles";
-        //public static string xmlFolder = "/Users/dylanzhu/Desktop/testFolder";
-
+        //public static string xmlFolder = "/Users/dylanzhu/Desktop/TestVG";
+        public static string xmlFolder = "/Users/dylanzhu/Desktop/TextFiles";
         public static int strokeNum;
         public static int originalFileLineNumber;
-        public static string strokeIdentifier = "<path id=";
-        public static int identifierLength = strokeIdentifier.Length;
+        public static string leftInsertLocation = "[";
+        public static int identifierLength = leftInsertLocation.Length;
 
         public List<int> KeyList = new List<int>();
         public Dictionary<int, string> locationAndCommentedLine = new Dictionary<int, string>();
@@ -35,7 +38,7 @@ namespace TestContainer
             var readAll = File.ReadAllText(fileName);
 
             //Updating for VSCode
-            //Debug.Log(readAll);
+            //Console.WriteLine(readAll);
             Console.WriteLine(readAll);
         }
 
@@ -43,7 +46,7 @@ namespace TestContainer
         public void Start()
         {
             //Updating for VSCode
-            //Debug.Log("Initiated");
+            //Console.WriteLine("Initiated");
             Console.WriteLine("Initiated");
             IterateThroughSVGs();
         }
@@ -57,7 +60,7 @@ namespace TestContainer
             System.IO.StreamReader file = new System.IO.StreamReader(fileName);
             while ((line = file.ReadLine()) != null)
             {
-                splitFile.Add(line);
+                splitFile.Add(line); //Making a longass list appended with every code line
                 counter++;
             }
 
@@ -66,41 +69,57 @@ namespace TestContainer
 
         public void StrokeDetection()
         {   
+            //This method adds the new code to the previously created string array
+
+            //Create a string array from the list
             string[] sepLines = splitFile.ToArray();
-            //Debug.Log("The Array is " + sepLines.Length + " long");
+            //Console.WriteLine("The Array is " + sepLines.Length + " long");
+
+            //Start from line 0, iterate through the file by adding to the line number. End for loop when at end of file.
             for (originalFileLineNumber = 0; originalFileLineNumber < sepLines.Length; originalFileLineNumber++)
             {
+                //As long as not at the end of the file line. Testing a couple characters in front of the "cursor"
                 for (int charNum = 0; (charNum + identifierLength - 1) < sepLines[originalFileLineNumber].Length; charNum++)
                 {
+                    //Test the isolated section against the identifier.
                     string section = sepLines[originalFileLineNumber].Substring(charNum, identifierLength);
-                    if (section == strokeIdentifier)
+                    if (section == leftInsertLocation)
                     {
-                        //Debug.Log("A path instance occured at line: " + (originalFileLineNumber + 1));
-                        locationAndCommentedLine.Add((originalFileLineNumber + 1), ("<!-- " + sepLines[originalFileLineNumber] + " -->"));
+                        //Console.WriteLine("A path instance occured at line: " + (originalFileLineNumber + 1));
+                        //Writing the new line
+
+                        /*
+                        Console.WriteLine("originalFileLineNumber: " + (originalFileLineNumber));
+                        Console.WriteLine("charNum: " + (charNum));
+                        Console.WriteLine("identifierLength: " + (identifierLength));
+                        Console.WriteLine("identifierLength: " + (sepLines[originalFileLineNumber].Length-1));
+                        /**/
+
+                        EditedLine = "<l>" + sepLines[originalFileLineNumber].Substring(charNum, sepLines[originalFileLineNumber].Length-charNum) + "</l>";
+                        
+                        //locationAndCommentedLine.Add((originalFileLineNumber + 1), ("<!-- " + sepLines[originalFileLineNumber] + "</l>"));
+                        locationAndCommentedLine.Add((originalFileLineNumber + 1), (EditedLine));
                         KeyList.Add(originalFileLineNumber + 1);
                     }
                 }
             }
-
-            //Resets sepLines array
-            //Array.Clear(sepLines, 0, sepLines.Length);
         }
 
         public void NewPictureCreation()
         {
-            //Debug.Log("There are " + locationAndCommentedLine.Count + " strokes");
+            //Create the new file 
+
             int[] locationKey = KeyList.ToArray();
-
-            //Updating for VSCode
-            //Debug.Log("There are " + locationAndCommentedLine.Count + " strokes in this character.");
-
 
             ArrayList lines = new ArrayList();
             StreamReader rdr = new StreamReader(fileName);
+
+            /*
             string newFolderName = fileName.Substring(0, fileName.Length - 4);
             if (!Directory.Exists(newFolderName))  // if it doesn't exist, create
                 Directory.CreateDirectory(newFolderName);
-            //Debug.Log("Folder should be created by now.");
+            //Console.WriteLine("Folder should be created by now.");
+            /**/
 
             string line;
 
@@ -110,7 +129,9 @@ namespace TestContainer
             }
             rdr.Close();
 
-            StreamWriter reName = new StreamWriter(newFolderName + "/" + "Original.svg");
+            //StreamWriter reName = new StreamWriter(newFolderName + "/" + "Fully_Listed.txt");
+
+            StreamWriter reName = new StreamWriter("Fully_Listed.txt");
 
             foreach (string strNewLine in lines)
             {
@@ -118,15 +139,39 @@ namespace TestContainer
             }
             reName.Close();
 
+            ///*
 
+            //Cutting and Inserting For Every Found Instance of the Stuff
             for (int instances = locationAndCommentedLine.Count - 1; instances > -1; instances--)
             {
                 lines.RemoveAt(locationKey[instances]-1);
                 lines.Insert(locationKey[instances]-1, locationAndCommentedLine[locationKey[instances]]);
 
+            }
+
+            //Write the New File
+            StreamWriter wrtr = new StreamWriter(xmlFolder + "/Fully_Listed.txt");
+
+            foreach (string strNewLine in lines)
+            {
+                wrtr.WriteLine(strNewLine);
+            }
+            wrtr.Close();
+
+
+            var checkFiles = File.ReadAllText(xmlFolder + "/Fully_Listed.txt");
+            //Console.WriteLine("File " + (locationAndCommentedLine.Count - instances) + " = " + checkFiles);
+            
+
+            //Original Code for SVG Splitting
+            /*
+            for (int instances = locationAndCommentedLine.Count - 1; instances > -1; instances--)
+            {
+                lines.RemoveAt(locationKey[instances]-1);
+                lines.Insert(locationKey[instances]-1, locationAndCommentedLine[locationKey[instances]]);
 
                 //Creating new files with different successive strokes commented out.
-                StreamWriter wrtr = new StreamWriter(newFolderName + "/" + instances + ".svg");
+                StreamWriter wrtr = new StreamWriter(newFolderName + "/" + instances + ".txt");
 
                 foreach (string strNewLine in lines)
                 {
@@ -134,11 +179,14 @@ namespace TestContainer
                 }
                 wrtr.Close();
 
-                var checkFiles = File.ReadAllText(newFolderName + "/" + instances + ".svg");
-                //Debug.Log("File " + (locationAndCommentedLine.Count - instances) + " = " + checkFiles);
+                var checkFiles = File.ReadAllText(newFolderName + "/" + instances + ".txt");
+                //Console.WriteLine("File " + (locationAndCommentedLine.Count - instances) + " = " + checkFiles);
             }
 
+            /**/
+
             //Finally removes the original file.
+            /*
             if (File.Exists(fileName))
             {
                 try
@@ -148,12 +196,13 @@ namespace TestContainer
                 catch
                 {
                     //Updating for VSCode
-                    //Debug.Log("This file couldn't be removed for God knows why :(");
+                    //Console.WriteLine("This file couldn't be removed for God knows why :(");
                     Console.WriteLine("This file couldn't be removed for God knows why :(");
                     return;
                 }
             }
             lines.Clear();
+            /**/
         }
 
         public void IterativeCleanUp()
@@ -161,32 +210,38 @@ namespace TestContainer
             KeyList.Clear();
             splitFile.Clear();
             locationAndCommentedLine.Clear();
-            //Debug.Log("Everything should be reset.");
+            Console.WriteLine("Everything should be reset.");
 
         }
 
         //Iterates through the entire xmlFiles folder until every ".svg" file has been changed into folders
         public void IterateThroughSVGs()
         {
-            foreach (string file in Directory.EnumerateFiles(xmlFolder, "*.svg"))
+            foreach (string file in Directory.EnumerateFiles(xmlFolder, "*.txt"))
             {
-                //rip testVG
-
                 //Updating for VSCode
-                //Debug.Log("The current file's name is: " + file);
+                //Console.WriteLine("The current file's name is: " + file);
                 Console.WriteLine("The current file's name is: " + file);
 
                 fileName = file;
 
-                //Debug.Log("Displaying Original File");
+                //Console.WriteLine("Displaying Original File");
                 //originalFile();
-                //Debug.Log("Turning file into list");
+                
+                Console.WriteLine("Turning file into list");
                 FileToList();
-                //Debug.Log("Seeing where there are strokes in the code");
+                
+                Console.WriteLine("Seeing where there are strokes in the code");
                 StrokeDetection();
-                //Debug.Log("Adding xml comments at the found locations during the specified times");
+                
+                Console.WriteLine("Adding xml comments at the found locations during the specified times");
                 NewPictureCreation();
                 IterativeCleanUp();
+
+                //Give job duration
+                DateTime dt2 = DateTime.Now;
+                TimeSpan span = dt2.Subtract(dt1);//33.00:00:00
+                Console.WriteLine("Job took: " + span);
             }
         }
     }
