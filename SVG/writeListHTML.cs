@@ -107,7 +107,7 @@ namespace TestContainer
                         Console.WriteLine("identifierLength: " + (sepLines[originalFileLineNumber].Length-1));
                         /**/
 
-                        EditedLine = "<l>" + sectionedLine + "</l>";
+                        EditedLine = "<li>" + sectionedLine + "</li>";
                         
                         Console.WriteLine("Charnum: " + charNum + ", "  + EditedLine);
                         
