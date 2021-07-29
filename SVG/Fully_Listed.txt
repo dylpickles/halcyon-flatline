@@ -1,0 +1,133 @@
+[fuck]
+
+/Volumes/库
+├── [   0]  BaiduNetdiskDownload
+├── [ 453]  Movies (192.168.1.100Videos) (M) - 快捷方式.lnk
+├── [4.0K]  System Volume Information
+│   ├── [   0]  EDP
+│   │   └── [   0]  Recovery
+│   ├── [  76]  IndexerVolumeGuid
+│   ├── [   0]  MountPointManagerRemoteDatabase
+│   ├── [  12]  WPSettings.dat
+│   ├── [   0]  _restore{10BF4F30-BD90-46CF-AFA6-76DD512DBC6C}
+│   │   └── [   0]  RP532
+│   │       ├── [8.1K]  S0083239.Acl
+│   │       └── [ 612]  change.log
+│   └── [ 20K]  tracking.log
+└── [4.0K]  新建文件夹
+    ├── [4.0K]  Extras
+    │   ├── [ 216]  Adobe Reader Download.lnk
+    │   ├── [ 443]  VCDVersion.xml
+    │   └── [   0]  WD SES Device Driver
+    │       ├── [8.3K]  wdcsam.cat
+    │       ├── [3.1K]  wdcsam.inf
+    │       ├── [ 11K]  wdcsam.sys
+    │       └── [ 14K]  wdcsam64.sys
+    ├── [4.0K]  User Manuals
+    │   ├── [   0]  ARA
+    │   │   └── [2.8M]  UserManual.pdf
+    │   ├── [   0]  CHS
+    │   │   └── [2.8M]  UserManual.pdf
+    │   └── [   0]  TUR
+    │       └── [3.3M]  UserManual.pdf
+    ├── [4.0M]  WD Apps Setup.exe
+    └── [4.0K]  WD Apps for Windows
+        ├── [2.1M]  WD SES Driver Setup.msi
+        ├── [ 18M]  WD SmartWare Setup (x64).msi
+        ├── [ 16M]  WD SmartWare Setup (x86).msi
+        ├── [7.3M]  WDDriveUtilitiesSetup.msi
+        ├── [8.3M]  WDSecuritySetup.msi
+        ├── [   0]  XP64
+        │   └── [1.8M]  wic_x64_enu.exe
+        └── [ 41M]  dotNetFx40_Client_x86_x64.exe
+
+
+302 directories, 14911 files
+
+/Volumes/库
+├── [   0]  BaiduNetdiskDownload
+├── [ 453]  Movies (192.168.1.100Videos) (M) - 快捷方式.lnk
+├── [4.0K]  System Volume Information
+│   ├── [   0]  EDP
+│   │   └── [   0]  Recovery
+│   ├── [  76]  IndexerVolumeGuid
+│   ├── [   0]  MountPointManagerRemoteDatabase
+│   ├── [  12]  WPSettings.dat
+│   ├── [   0]  _restore{10BF4F30-BD90-46CF-AFA6-76DD512DBC6C}
+│   │   └── [   0]  RP532
+│   │       ├── [8.1K]  S0083239.Acl
+│   │       └── [ 612]  change.log
+│   └── [ 20K]  tracking.log
+└── [4.0K]  新建文件夹
+    ├── [4.0K]  Extras
+    │   ├── [ 216]  Adobe Reader Download.lnk
+    │   ├── [ 443]  VCDVersion.xml
+    │   └── [   0]  WD SES Device Driver
+    │       ├── [8.3K]  wdcsam.cat
+    │       ├── [3.1K]  wdcsam.inf
+    │       ├── [ 11K]  wdcsam.sys
+    │       └── [ 14K]  wdcsam64.sys
+    ├── [4.0K]  User Manuals
+    │   ├── [   0]  ARA
+    │   │   └── [2.8M]  UserManual.pdf
+    │   ├── [   0]  CHS
+    │   │   └── [2.8M]  UserManual.pdf
+    │   └── [   0]  TUR
+    │       └── [3.3M]  UserManual.pdf
+    ├── [4.0M]  WD Apps Setup.exe
+    └── [4.0K]  WD Apps for Windows
+        ├── [2.1M]  WD SES Driver Setup.msi
+        ├── [ 18M]  WD SmartWare Setup (x64).msi
+        ├── [ 16M]  WD SmartWare Setup (x86).msi
+        ├── [7.3M]  WDDriveUtilitiesSetup.msi
+        ├── [8.3M]  WDSecuritySetup.msi
+        ├── [   0]  XP64
+        │   └── [1.8M]  wic_x64_enu.exe
+        └── [ 41M]  dotNetFx40_Client_x86_x64.exe
+
+
+302 directories, 14911 files
+
+/Volumes/库
+├── [   0]  BaiduNetdiskDownload
+├── [ 453]  Movies (192.168.1.100Videos) (M) - 快捷方式.lnk
+├── [4.0K]  System Volume Information
+│   ├── [   0]  EDP
+│   │   └── [   0]  Recovery
+│   ├── [  76]  IndexerVolumeGuid
+│   ├── [   0]  MountPointManagerRemoteDatabase
+│   ├── [  12]  WPSettings.dat
+│   ├── [   0]  _restore{10BF4F30-BD90-46CF-AFA6-76DD512DBC6C}
+│   │   └── [   0]  RP532
+│   │       ├── [8.1K]  S0083239.Acl
+│   │       └── [ 612]  change.log
+│   └── [ 20K]  tracking.log
+└── [4.0K]  新建文件夹
+    ├── [4.0K]  Extras
+    │   ├── [ 216]  Adobe Reader Download.lnk
+    │   ├── [ 443]  VCDVersion.xml
+    │   └── [   0]  WD SES Device Driver
+    │       ├── [8.3K]  wdcsam.cat
+    │       ├── [3.1K]  wdcsam.inf
+    │       ├── [ 11K]  wdcsam.sys
+    │       └── [ 14K]  wdcsam64.sys
+    ├── [4.0K]  User Manuals
+    │   ├── [   0]  ARA
+    │   │   └── [2.8M]  UserManual.pdf
+    │   ├── [   0]  CHS
+    │   │   └── [2.8M]  UserManual.pdf
+    │   └── [   0]  TUR
+    │       └── [3.3M]  UserManual.pdf
+    ├── [4.0M]  WD Apps Setup.exe
+    └── [4.0K]  WD Apps for Windows
+        ├── [2.1M]  WD SES Driver Setup.msi
+        ├── [ 18M]  WD SmartWare Setup (x64).msi
+        ├── [ 16M]  WD SmartWare Setup (x86).msi
+        ├── [7.3M]  WDDriveUtilitiesSetup.msi
+        ├── [8.3M]  WDSecuritySetup.msi
+        ├── [   0]  XP64
+        │   └── [1.8M]  wic_x64_enu.exe
+        └── [ 41M]  dotNetFx40_Client_x86_x64.exe
+
+
+302 directories, 14911 files
