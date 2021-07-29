@@ -89,7 +89,8 @@ namespace TestContainer
 
                     if (section == leftInsertLocation)
                     {
-                        //Only record the character location of the first instance of the flag marker
+                        //Only record the character location of the first instance of the flag marker 
+                        //(Actually unnecessary with the break at the end lol)
                         if (firstChar == 0)
                             firstChar = charNum;
                         
