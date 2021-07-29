@@ -24,8 +24,9 @@ namespace TestContainer
         public static string xmlFolder = "/Users/dylanzhu/Desktop/TextFiles";
         public static int strokeNum;
         public static int originalFileLineNumber;
-        //Should be leftInsertLocation = "[";
-        public static string leftInsertLocation = "─ [";
+
+        //public static string leftInsertLocation = "─ [";
+        public static string leftInsertLocation = "[";
         public static int identifierLength = leftInsertLocation.Length;
 
         public List<int> KeyList = new List<int>();
@@ -79,23 +80,22 @@ namespace TestContainer
             //Start from line 0, iterate through the file by adding to the line number. End for loop when at end of file.
             for (originalFileLineNumber = 0; originalFileLineNumber < sepLines.Length; originalFileLineNumber++)
             {
+                int firstChar = 0;
                 //As long as not at the end of the file line. Testing a couple characters in front of the "cursor"
                 for (int charNum = 0; (charNum + identifierLength - 1) < sepLines[originalFileLineNumber].Length; charNum++)
                 {
                     //Test the isolated section against the identifier.
                     string section = sepLines[originalFileLineNumber].Substring(charNum, identifierLength);
 
-                    //Full Line Rn
-                    string sectionedLine = sepLines[originalFileLineNumber].Substring(charNum, sepLines[originalFileLineNumber].Length-charNum);
-
-                    /*
-                    //Checking how the lines are being processed.
-                    Console.WriteLine("File Line #: " + (originalFileLineNumber + 1) + ", Full Line: " + sectionedLine);
-                    Console.WriteLine("Check Charnum: " + charNum + ", " + section);
-                    /**/
-
                     if (section == leftInsertLocation)
                     {
+                        //Only record the character location of the first instance of the flag marker
+                        if (firstChar == 0)
+                            firstChar = charNum;
+                        
+                        //Full Line Rn
+                        string sectionedLine = sepLines[originalFileLineNumber].Substring(firstChar, sepLines[originalFileLineNumber].Length-firstChar);
+
                         //Console.WriteLine("A path instance occured at line: " + (originalFileLineNumber + 1));
                         //Writing the new line
 
@@ -108,9 +108,12 @@ namespace TestContainer
 
                         EditedLine = "<l>" + sectionedLine + "</l>";
                         
+                        Console.WriteLine("Charnum: " + charNum + ", "  + EditedLine);
+                        
                         //locationAndCommentedLine.Add((originalFileLineNumber + 1), ("<!-- " + sepLines[originalFileLineNumber] + "</l>"));
                         locationAndCommentedLine.Add((originalFileLineNumber + 1), (EditedLine));
                         KeyList.Add(originalFileLineNumber + 1);
+                        break;
                     }
                 }
             }
