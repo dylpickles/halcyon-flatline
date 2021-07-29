@@ -24,7 +24,8 @@ namespace TestContainer
         public static string xmlFolder = "/Users/dylanzhu/Desktop/TextFiles";
         public static int strokeNum;
         public static int originalFileLineNumber;
-        public static string leftInsertLocation = "[";
+        //Should be leftInsertLocation = "[";
+        public static string leftInsertLocation = "─ [";
         public static int identifierLength = leftInsertLocation.Length;
 
         public List<int> KeyList = new List<int>();
@@ -83,6 +84,16 @@ namespace TestContainer
                 {
                     //Test the isolated section against the identifier.
                     string section = sepLines[originalFileLineNumber].Substring(charNum, identifierLength);
+
+                    //Full Line Rn
+                    string sectionedLine = sepLines[originalFileLineNumber].Substring(charNum, sepLines[originalFileLineNumber].Length-charNum);
+
+                    /*
+                    //Checking how the lines are being processed.
+                    Console.WriteLine("File Line #: " + (originalFileLineNumber + 1) + ", Full Line: " + sectionedLine);
+                    Console.WriteLine("Check Charnum: " + charNum + ", " + section);
+                    /**/
+
                     if (section == leftInsertLocation)
                     {
                         //Console.WriteLine("A path instance occured at line: " + (originalFileLineNumber + 1));
@@ -95,7 +106,7 @@ namespace TestContainer
                         Console.WriteLine("identifierLength: " + (sepLines[originalFileLineNumber].Length-1));
                         /**/
 
-                        EditedLine = "<l>" + sepLines[originalFileLineNumber].Substring(charNum, sepLines[originalFileLineNumber].Length-charNum) + "</l>";
+                        EditedLine = "<l>" + sectionedLine + "</l>";
                         
                         //locationAndCommentedLine.Add((originalFileLineNumber + 1), ("<!-- " + sepLines[originalFileLineNumber] + "</l>"));
                         locationAndCommentedLine.Add((originalFileLineNumber + 1), (EditedLine));
