@@ -25,6 +25,10 @@ namespace TestContainer
         public static int strokeNum;
         public static int originalFileLineNumber;
 
+        //Defining Tabs Stuff
+        public static string tabs;
+        public static int lines;
+
         //public static string leftInsertLocation = "─ [";
         public static string leftInsertLocation = "[";
         public static int identifierLength = leftInsertLocation.Length;
@@ -107,7 +111,9 @@ namespace TestContainer
                         Console.WriteLine("identifierLength: " + (sepLines[originalFileLineNumber].Length-1));
                         /**/
 
-                        EditedLine = "<li>" + sectionedLine + "</li>";
+                        tabs = new String('\t', 3*lines);
+
+                        EditedLine = tabs + "<li>" + sectionedLine + "</li>";
                         
                         Console.WriteLine("Charnum: " + charNum + ", "  + EditedLine);
                         
